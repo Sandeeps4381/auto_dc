@@ -77,7 +77,7 @@ LIMIT $offset, $limit
 
     // Fetch total count for pagination controls
     $totalSql = "SELECT COUNT(*) as total 
-    FROM testcase
+    FROM testcases
    JOIN urls ON testcases.url_id = urls.url_id
     $whereClause";
 

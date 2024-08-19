@@ -1,0 +1,509 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #edeff5;
+}
+.sidebar {
+    width: 230px;
+    background-color: #202224;
+    color: #ffff;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    transform: translateX(-250px);
+}
+.sidebar.open {
+    transform: translateX(0);
+}
+.logo {
+    text-align: center;
+    padding: 10px;
+}
+.logo img {
+    max-width: 70%;
+}
+.links {
+    display: flex;
+    flex-direction: column;
+    
+    margin-top: 20px;
+}
+
+.link a{
+   
+    text-align: center;
+}
+.link {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    text-align: left;
+    color: #979797;
+    text-decoration: none;
+  
+    transition: background-color 0.3s ease;
+}
+.link.active {
+    color: #ffff;
+    background-color: #979797;
+}
+.link i {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.content {
+    margin-left: 240px; /* Adjusts content area to account for sidebar */
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto; /* Makes content scrollable if necessary */
+}
+.container {
+    display: flex;
+    gap: 20px; /* Space between the cards */
+    flex-wrap: wrap; /* Allows cards to wrap */
+    /* Ensures equal height for both cards */
+}
+
+.ss {
+    display: flex;
+    flex-direction: row; /* Align items horizontally */
+    gap: 20px; /* Adjust gap between cards as needed */
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+}
+
+.card, .trend-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Full height to match other card */
+}
+
+.card {
+    flex: 1; /* Allows card to grow equally */
+    max-width: 300px;
+}
+
+.trend-card {
+    flex: 1; /* Allows trend-card to grow equally */
+    max-width:100%
+}
+
+
+/* Combined card styles */
+
+
+
+.report-header h2 {
+  
+    padding: 0 15px;
+    font-size: 18px; /* Reduced font size */
+}
+.report-header p {
+  
+    padding: 0 15px;
+    color: #979797;
+    font-size: 14px; /* Reduced font size */
+}
+
+.test-cases-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 15px; /* Add some padding if needed */
+}
+
+.test-cases-container h3 {
+color: #979797;
+font-size: 15px; /* Adjust font size as needed */
+margin: 0; /* Remove default margin */
+}
+
+.test-cases-number {
+font-size: 28px; /* Adjust font size as needed */
+color: #4880ff;
+margin: 0; /* Remove default margin */
+}
+
+.result {
+    font-size: 16px;
+    /* Adds space between each result block */
+}
+
+.result p {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: #979797;
+}
+
+.result p span {
+    margin-left: 10px; /* Adjust this value to control the spacing */
+    font-weight: bold; /* Optional: Makes the number bold */
+    padding: 5px; /* Add some padding for spacing inside the border */
+    border-radius: 5px; /* Optional: Rounds the corners of the border */
+    border: 2px solid; /* Adds a border around the number */
+    display: inline-flex; /* Allows using flex properties */
+    justify-content: center; /* Centers the text horizontally */
+    align-items: center; /* Centers the text vertically */
+    width: 35px; /* Fixed width for square background */
+    height: 13px; /* Fixed height for square background to match width */
+    text-align: center; /* Centers text horizontally */
+}
+
+.result.passed span {
+    background-color: #00B69B;
+    border-color: #00B69B; /* Matching border color */
+    color: #ffffff; /* Text color inside the span */
+}
+
+.result.failed span {
+    background-color: #FF6262;
+    border-color: #FF6262; /* Matching border color */
+    color: #ffffff; /* Text color inside the span */
+}
+
+/* Additional styling to ensure horizontal alignment */
+.results-container {
+    display: flex;
+    flex-direction: row; /* Arrange result blocks horizontally */
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Distribute space between result blocks */
+}
+
+
+
+.time-taken{
+    margin-top:10px;
+    color: #979797;
+    text-align: center;
+}
+
+
+.circle-container {
+    display: flex;
+   
+    flex-direction: column;
+    align-items: center;
+}
+.circle-container canvas {
+    border-radius: 40%;
+}
+
+
+
+
+
+.trend-card h2 {
+    margin: 0;
+    font-size: 20px;
+}
+.trend-card canvas {
+    width: 100%;
+   
+  /* Adjust height for the trend chart */
+}
+
+
+
+.trend-header {
+display: flex;
+
+justify-content: space-between;
+align-items: center;
+
+}
+
+.trend-header button {
+padding: 10px 10px;
+background-color: #4880FF;
+color:#ffff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+
+
+
+
+
+.combined-card {
+   border-radius: 9px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    width: calc(300px + 730px ); /* Combined width of automation and trend cards plus gap */
+   max-width: 100%; /* Ensure it doesn't overflow the container */
+    position: relative; /* To position the legend */
+}
+
+.combined-card-content {
+    display: flex;
+     /* Space between the inner cards */
+    flex-direction: column;
+    height: 100%;
+}
+.combined-card h2 {
+    margin-top: 10px;
+    margin-left: 15px;
+    padding: 0 15px;
+    font-size: 17px; /* Font size for the title */
+}
+.chart-container {
+    flex: 1;
+}
+.legend-container {
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+position: absolute; /* Position relative to the .chart-container */
+right: 0; /* Align to the right */
+top: 0; /* Adjust as needed */
+padding: 10px; /* Padding around the legend */
+gap: 20px; 
+margin-right: 20px;/* Gap between the legend items */
+}
+
+.legend-item {
+font-size: 14px; /* Adjust font size if needed */
+color: #979797;
+display: flex;
+align-items: center;
+margin-bottom: 10px; /* Space between legend items */
+}
+
+.legend-color {
+width: 20px;
+height: 20px;
+border-radius: 50%;
+margin-right: 10px; /* Space between color circle and label */
+}
+
+
+/* css mobile respon*/
+@media (max-width: 768px) {
+    .sidebar {
+        width: 250px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+       margin-top: 10px;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+    }
+    .content {
+        margin-left: 0;
+        margin-top: 60px; /* Adjusted to accommodate the topbar */
+    }
+    .logo{
+        display: flex;
+        align-items: center;
+    }
+    .topbar {
+        background-color: #202224;
+        color: #ffff;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+    }
+    .menu-toggle {
+        font-size: 24px;
+        cursor: pointer;
+        display: block;
+    }
+    .topbar .logo img {
+        max-width: 20%;
+    }
+    .sidebar .logo img {
+        display: none;
+    }
+
+
+
+    
+}
+@media (min-width: 769px) {
+    .topbar {
+        display: none;
+    }
+    .sidebar {
+        transform: translateX(0);
+    }
+    .content {
+        margin-left: 250px; /* Adjusts content area to account for sidebar */
+        margin-top: px; /* No top margin needed on larger screens */
+    }
+}
+@media (max-width: 480px) {
+    .card, .trend-card, .combined-card {
+        padding: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+    .test-cases-number {
+        font-size: 24px; /* Reduced font size */
+    }
+}
+
+
+
+
+
+/*  desgin for css suties */
+
+
+.show-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.left-section, .center-section, .right-section {
+    display: flex;
+    align-items: center;
+}
+
+.left-section label,
+.left-section select {
+    margin-right: 5px;
+}
+
+.center-section {
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.center-logo {
+    max-height: 50px; /* Adjust the size as needed */
+}
+
+.right-section input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.right-section p {
+    margin-right: 10px; /* Adjust the gap between text and input */
+}
+
+.table_class {
+    background-color: white;
+  
+    border-radius: 8px;
+    position: relative;
+    
+}
+
+table {
+    
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-header th{
+    color: rgb(255, 255, 255);
+    background-color: #4880FF;
+    
+}
+.table-header th a {
+    
+    color: rgb(255, 255, 255); /* Set the text color to black */
+    text-decoration: none; /* Remove underline from links */
+}
+
+table th, table td {
+    background-color: white;
+   
+    padding: 8px;
+    text-align: left;
+}
+.table-header {
+    
+    border-bottom: 1px solid #000; /* Adjust the color and width as needed */
+}
+
+.cs {
+    margin-top: 20px;
+}
+
+.pagination-left {
+    float: left;
+}
+
+.pagination-right {
+    float: right;
+}
+
+.pagination-right a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #000;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-right a:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.pagination-right a.active {
+    background-color: #a4a9ad; /* Blue background for active page */
+    color: rgb(4, 2, 2); /* White text color for active page */
+    border-color: #000000; /* Blue border for active page */
+    font-weight: bold; /* Make the text bold */
+}
+
+.table_class::after {
+    content: ""; /* Empty content for the pseudo-element */
+    display: block; /* Make the pseudo-element block-level */
+    height: 1px; /* Height of the border line */
+    background-color: #000; /* Color of the border line */
+    position: absolute; /* Position absolutely within the table container */
+    bottom: 0; /* Align to the bottom of the container */
+    left: 0; /* Align to the left of the container */
+    width: 100%; /* Span the full width of the table container */
+ /* Optional: rounded corners for the bottom */
+}
+
+
+
+
+.table_class .table tbody tr {
+    border-bottom: 1px solid #ddd; /* Light gray border for rows */
+}
+
+/* Optional: Style for the last row to remove bottom border */
+.table_class .table tbody tr:last-child {
+    border-bottom: none; /* Remove the border for the last row */
+}
+
+
+/* css for   screenshot */
+
